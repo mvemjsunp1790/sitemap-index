@@ -5,6 +5,9 @@ from xml.dom import minidom
 #get today's date in yyyy-mm-dd format
 date = datetime.datetime.now().strftime('%Y-%m-%d')
 
+#set the directory the file will be output to
+save_path = 'C:/output/path'
+
 #list of site locales
 sites = ["gb","de","it","es","fr","me","cn","hk"]
 
@@ -20,5 +23,5 @@ tree = ET.ElementTree(root)
 
 #beutify xml
 xmlstr = minidom.parseString(ET.tostring(root)).toprettyxml(indent="   ")
-with open("sitemap-index.xml", "w") as file:
+with open(save_path+"sitemap-index.xml", "w") as file:
     file.write(xmlstr)
